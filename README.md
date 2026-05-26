@@ -2,6 +2,9 @@
 
 A clean, fully functional calculator built with vanilla HTML, CSS, and JavaScript. No frameworks, no dependencies — just open `calculator.html` in any browser and it works.
 
+## Live Demo
+[Try it here](https://gagematzen.github.io/Project-Calculator/)
+
 ## Features
 
 - Basic operators: addition, subtraction, multiplication, division, and modulo
