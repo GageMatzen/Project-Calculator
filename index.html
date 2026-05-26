@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculator</title>
+  <link rel="stylesheet" href="calculator.css" />
+</head>
+<body>
+
+  <div class="calculator" role="application" aria-label="Calculator">
+
+    <!-- Brand label -->
+    <p class="brand">CALC · V1</p>
+
+    <!-- Display -->
+    <div class="display" aria-live="polite" aria-label="Display">
+      <span id="display-sub"  aria-hidden="true"></span>
+      <span id="display-main" aria-label="Current value">0</span>
+    </div>
+
+    <!-- Button Grid -->
+    <div class="buttons">
+
+      <!-- Row 1: Actions + Divide -->
+      <button id="btn-ac"  class="btn-action" onclick="calc.allClear(); calc.flashButton(this)"   aria-label="All Clear">AC</button>
+      <button              class="btn-action" onclick="calc.toggleSign(); calc.flashButton(this)"  aria-label="Toggle sign">±</button>
+      <button              class="btn-action" onclick="calc.backspace(); calc.flashButton(this)"   aria-label="Backspace">⌫</button>
+      <button id="btn-div" class="btn-op"     onclick="calc.setOperator('/'); calc.flashButton(this)" aria-label="Divide">÷</button>
+
+      <!-- Row 2: 7 8 9 × -->
+      <button class="btn-digit" onclick="calc.appendDigit('7'); calc.flashButton(this)" aria-label="7">7</button>
+      <button class="btn-digit" onclick="calc.appendDigit('8'); calc.flashButton(this)" aria-label="8">8</button>
+      <button class="btn-digit" onclick="calc.appendDigit('9'); calc.flashButton(this)" aria-label="9">9</button>
+      <button id="btn-mul" class="btn-op" onclick="calc.setOperator('*'); calc.flashButton(this)" aria-label="Multiply">×</button>
+
+      <!-- Row 3: 4 5 6 − -->
+      <button class="btn-digit" onclick="calc.appendDigit('4'); calc.flashButton(this)" aria-label="4">4</button>
+      <button class="btn-digit" onclick="calc.appendDigit('5'); calc.flashButton(this)" aria-label="5">5</button>
+      <button class="btn-digit" onclick="calc.appendDigit('6'); calc.flashButton(this)" aria-label="6">6</button>
+      <button id="btn-minus" class="btn-op" onclick="calc.setOperator('-'); calc.flashButton(this)" aria-label="Subtract">−</button>
+
+      <!-- Row 4: 1 2 3 + -->
+      <button class="btn-digit" onclick="calc.appendDigit('1'); calc.flashButton(this)" aria-label="1">1</button>
+      <button class="btn-digit" onclick="calc.appendDigit('2'); calc.flashButton(this)" aria-label="2">2</button>
+      <button class="btn-digit" onclick="calc.appendDigit('3'); calc.flashButton(this)" aria-label="3">3</button>
+      <button id="btn-plus" class="btn-op" onclick="calc.setOperator('+'); calc.flashButton(this)" aria-label="Add">+</button>
+
+      <!-- Row 5: 0 . % = -->
+      <button class="btn-digit btn-wide" onclick="calc.appendDigit('0'); calc.flashButton(this)" aria-label="0">0</button>
+      <button class="btn-digit"          onclick="calc.appendDigit('.'); calc.flashButton(this)" aria-label="Decimal point">.</button>
+      <button id="btn-mod" class="btn-op" onclick="calc.setOperator('%'); calc.flashButton(this)" aria-label="Modulo">%</button>
+      <button id="btn-eq"  class="btn-eq" onclick="calc.evaluate(); calc.flashButton(this)"     aria-label="Equals">=</button>
+
+    </div><!-- /.buttons -->
+  </div><!-- /.calculator -->
+
+  <script src="calculator.js"></script>
+</body>
+</html>

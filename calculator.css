@@ -1,0 +1,198 @@
+/* ===========================
+   calculator.css
+   =========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* ── Variables ── */
+:root {
+  --bg:          #0f0f0f;
+  --surface:     #1a1a1a;
+  --panel:       #141414;
+  --border:      #2a2a2a;
+
+  --btn-digit:   #222222;
+  --btn-digit-h: #2e2e2e;
+  --btn-op:      #2a2010;
+  --btn-op-h:    #3d3018;
+  --btn-action:  #1e1e1e;
+  --btn-action-h:#292929;
+  --btn-eq:      #c8820a;
+  --btn-eq-h:    #e0960d;
+
+  --text-main:   #f0ede6;
+  --text-sub:    #6b6560;
+  --text-op:     #d4a541;
+  --text-eq:     #fff8ee;
+  --accent:      #d4a541;
+
+  --radius-outer: 24px;
+  --radius-btn:   14px;
+  --shadow:       0 32px 80px rgba(0,0,0,0.7), 0 8px 24px rgba(0,0,0,0.5);
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  background-image:
+    radial-gradient(ellipse 60% 60% at 30% 20%, rgba(212,165,65,0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 75% 80%, rgba(200,130,10,0.04) 0%, transparent 70%);
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ── Calculator Shell ── */
+.calculator {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-outer);
+  box-shadow: var(--shadow);
+  padding: 24px 20px 20px;
+  width: 340px;
+  user-select: none;
+}
+
+/* ── Brand strip ── */
+.brand {
+  text-align: right;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  color: #3a3530;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+/* ── Display ── */
+.display {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 20px 14px;
+  margin-bottom: 20px;
+  min-height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+#display-sub {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--text-sub);
+  min-height: 1.2em;
+  transition: color 0.2s;
+}
+
+#display-main {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 3.4rem;
+  font-weight: 400;
+  color: var(--text-main);
+  line-height: 1;
+  margin-top: 4px;
+  transition: font-size 0.15s ease, color 0.2s;
+  word-break: break-all;
+}
+
+/* ── Button Grid ── */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+/* ── Base Button ── */
+button {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: var(--radius-btn);
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.12s, transform 0.08s, box-shadow 0.12s;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Digit buttons ── */
+.btn-digit {
+  background: var(--btn-digit);
+  color: var(--text-main);
+  border: 1px solid #2c2c2c;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04);
+}
+.btn-digit:hover  { background: var(--btn-digit-h); }
+
+/* ── Operator buttons ── */
+.btn-op {
+  background: var(--btn-op);
+  color: var(--text-op);
+  border: 1px solid #3a2e14;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,220,100,0.05);
+  font-size: 1.3rem;
+}
+.btn-op:hover { background: var(--btn-op-h); }
+
+/* ── Action buttons (AC, ±, ⌫) ── */
+.btn-action {
+  background: var(--btn-action);
+  color: #a09890;
+  border: 1px solid #282828;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.03);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+.btn-action:hover { background: var(--btn-action-h); color: #ccc; }
+
+/* ── Equals button ── */
+.btn-eq {
+  background: var(--btn-eq);
+  color: var(--text-eq);
+  border: 1px solid #b87500;
+  box-shadow: 0 2px 10px rgba(200,130,10,0.35), inset 0 1px 0 rgba(255,255,200,0.15);
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+.btn-eq:hover {
+  background: var(--btn-eq-h);
+  box-shadow: 0 4px 18px rgba(200,130,10,0.5), inset 0 1px 0 rgba(255,255,200,0.2);
+}
+
+/* ── Wide (zero) button ── */
+.btn-wide {
+  grid-column: span 2;
+  justify-content: flex-start;
+  padding-left: 26px;
+}
+
+/* ── Pressed state ── */
+button:active,
+button.pressed {
+  transform: scale(0.93);
+  filter: brightness(0.85);
+}
+
+/* ── Divider ── */
+.row-divider {
+  grid-column: 1 / -1;
+  height: 1px;
+  background: var(--border);
+  opacity: 0.5;
+  margin: 2px 0;
+}
+
+/* ── Scrollbar (just in case) ── */
+::-webkit-scrollbar { display: none; }
